@@ -13,9 +13,14 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', function () {
-    return "Hola 2";
+    // return "Hola 2";
+    return view('landing');
 });
 
 
 
 Route::resource('/users/{id}/posts','PostsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

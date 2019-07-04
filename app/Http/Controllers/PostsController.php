@@ -14,10 +14,10 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user)
     {   
         $posts = Post::all();
-        return view("posts",["posts"=>$posts]);
+        return view("posts.index",["user"=>$user,"posts"=>$posts]);
         //
     }
 
@@ -26,9 +26,9 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user)
     {
-        //
+        return view("posts.create",["user"=>$user]);
     }
 
     /**
@@ -39,7 +39,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->title = $request ->title;
+        $post->content = $request ->content;
+        $post->img_src = '';
+        $post->likes = 0;
+        $post->save();
+        return redirect('/');
     }
 
     /**
@@ -48,9 +54,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id,$id2)
+    public function show($user,$id)
     {
-        return "Hola desde show $id   $id2";
+        $post = Post::find($id);
+        return view("posts.show",["post"=>$post]);
+        // return "Hola desde show $user $id";
     }
 
     /**
