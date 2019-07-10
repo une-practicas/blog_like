@@ -28,8 +28,12 @@
             {{-- <div class="row"> --}}
                 <div>{{$post->title}}</div>
                 <div>{{$post->content}}</div>
+            <form action="{{URL::to('/')}}/users/{{$user}}/posts/{{$post->id}}" method="post">
+                @csrf
+                {{ method_field('DELETE') }}
+                <button type="submit">Borrar</button>
+            </form>
             {{-- </div> --}}
-
         </div>
         @if ($i%2 != 0)
             </div>

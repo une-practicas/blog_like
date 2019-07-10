@@ -67,9 +67,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user,$id)
     {
-        //
+        $post = Post::find($id);
+        return view("posts.edit",["user"=>$user,"post"=>$post,"id"=>$id]);
     }
 
     /**
@@ -79,9 +80,16 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user,$id)
     {
-        //
+        echo "update";
+        $post = Post::find($id);
+        $post->title = $request ->title;
+        $post->content = $request ->content;
+        // $post->img_src = '';
+        // $post->likes = 0;
+        $post->save();
+        return redirect('/');
     }
 
     /**
@@ -90,8 +98,11 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user,$id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/users/'.$user.'/posts/');
+        // echo "destroy";
     }
 }

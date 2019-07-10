@@ -7,13 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div id="maincarousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                   <div class="carousel-item active">
                   <img src="{{ asset('/images/juliane-liebermann-O-RKu3Aqnsw-unsplash.jpg') }}" class="d-block w-100" alt="...">
@@ -25,18 +25,17 @@
                   <img src="{{ asset('/images/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg') }}" class="d-block w-100" alt="...">
                   </div>
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              {{-- <a class="carousel-control-prev" href="#maincarousel" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#maincarousel" role="button" data-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
-              </a>
+              </a> --}}
               </div>
             </div>
             </div>
-            <span class="align-middle">middle</span>
     
           </div>
   </div>
