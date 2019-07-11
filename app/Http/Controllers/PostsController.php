@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index($user)
     {   
-        $posts = Post::all();
+        $posts = Post::where('user_id', $user) -> get();
         return view("posts.index",["user"=>$user,"posts"=>$posts]);
         //
     }
@@ -44,6 +44,7 @@ class PostsController extends Controller
         $post->content = $request ->content;
         $post->img_src = '';
         $post->likes = 0;
+        $post->user_id = auth()->user()->id;
         $post->save();
         return redirect('/');
     }
