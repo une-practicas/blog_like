@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,18 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', function () {
-    // return "Hola 2";
-    return view('landing');
+    if (Auth::guest()){
+        return view('landing');
+    }
+    else {
+        return redirect()->route('posts.index',['id'=>Auth::id()]);
+    }
 });
 
 
 
-Route::resource('/users/{id}/posts','PostsController');
+Route::resource('/users/{id}/posts','PostsController')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
