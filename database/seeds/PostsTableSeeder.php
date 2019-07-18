@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
-use App\Post;
 use Faker\Factory as Faker;
-
+use App\Post;
+use App\User;
 class PostsTableSeeder extends Seeder
 {
     /**
@@ -14,17 +13,17 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        for ($i=0; $i < 500; $i++) { 
-            Post::create([
-                'title' => $faker->sentence(),
-                'content' => $faker->paragraph(10),
-                'likes' => 0,
-                'updated_at' => null,
-                'created_at' => $faker->dateTime(),
-                'img_src' => $faker->imageUrl(640, 480, 'cats', true, 'Faker'),
-                'user_id' => User::inRandomOrder()->first()->id,
-            ]);
+        $faker=Faker::create();
+        for($i=0;$i<200;$i++){
+        $post = new Post;
+        $post->title=$faker->sentence();
+        $post->created_at=$faker->dateTime();
+        $post->content=$faker->paragraph(10);
+        $post->likes=0;
+        $post->updated_at=null;
+        $post->img_src=$faker->imageUrl();
+        $post->user_id=User::inRandomOrder()->first()->id;
+        $post->save();
         }
     }
 }
