@@ -7,7 +7,6 @@ Este es un proyecto creado para la materia de Aplicaciones Web impartida en la U
 Este proyecto fue realizado con laravel.
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-
 # PHP Artisan
 
 PHP Artisan es una parte indispensable a la hora de trabajar con laravel. Artisan viene incluido con Laravel y es una intefaz de para linea de comandos (cli). Artisan nos permite manipular toda nuestra aplicacion con comandos cortos e intuitivos.
@@ -40,6 +39,8 @@ Description:
 
 
 # ¡¡Subiendo la aplicación a Heroku!!
+
+<p align="center"><img src="https://www3.assets.heroku.com/assets/logo-purple-08fb38cebb99e3aac5202df018eb337c5be74d5214768c90a8198c97420e4201.svg"></p>
 
 Heroku es un servicio de Hosting el cual nos permite subir nuestra aplicación hecha en PHP con Laravel a Internet.
 Para ello realizaremos los siguientes pasos:
