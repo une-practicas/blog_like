@@ -22,6 +22,10 @@ Route::get('/', function () {
     }
 });
 
+Route::get('test',function(){
+    return "TEST PAGE";
+})
+
 
 
 Route::resource('/users/{id}/posts','PostsController')->middleware('auth');
