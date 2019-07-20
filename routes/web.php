@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 
 Route::get('/test',function(){
-    return "TEST PAGE";
+    return "TEST PAGE"; 
 });
 
 
