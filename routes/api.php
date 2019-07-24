@@ -52,7 +52,7 @@ Route::get('/users/{userid}/posts/',function($userid){
     $posts = Post::where('user_id', $userid) -> get();
     $json = [];
     foreach( $posts as $post ){
-        $json["p".$post->id] = [
+        $json[$post->id] = [
             'title' => $post->title,
             'content' => $post->content,
             'url' => request()->url()."/$post->id/"
@@ -69,5 +69,5 @@ Route::get('/users/{userid}/posts/{postid}',function($postid){
         'title' => $post->title,
         'content' => $post->content
     ];
-    return $json;
+    return response()->json($json,200,[],JSON_UNESCAPED_SLASHES);
 });
